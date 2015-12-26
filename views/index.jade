@@ -1,0 +1,42 @@
+doctype html
+// This tells Angular that this area of the HTML is the todoApp defined in public/app.js
+html(ng-app='todoApp')
+  head
+    title Todo App
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width,initial-scale=1.0')
+    link(rel='stylesheet' href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+  // This tells Angular that MainCtrl should control the user actions done in this area
+  // MainCtrl as vm creates an instace of MainCtrl called "vm" - the view model (although you can call it anything)
+  body(ng-controller='MainCtrl as vm')
+    // .container is Jade shorthand for <div class='container'></div>
+    .container
+      .jumbotron.text-center
+        h1 Todos&nbsp;
+          span.label.label-info {{vm.todos.length}}
+      .row
+        .col-sm-6.col-sm-offset-3
+          table.table.table-bordered
+            thead
+              tr
+                th.text-center Todos
+            tbody
+              tr(ng-repeat='todo in vm.todos')
+                td
+                  input(type='checkbox' ng-click='vm.deleteTodo(todo._id)')
+                  | &nbsp;&nbsp;
+                  | {{todo.text}}
+      .row
+        .col-sm-6.col-sm-offset-3
+          form(ng-submit='vm.postNewTodo()')
+            .form-group
+              // Bind this input to formData.text in the controller
+              input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' ng-model='vm.formData.text')
+            .form-group.text-center
+              br
+              button.btn.btn-success.btn-lg(type='submit') Do Something
+
+
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/angular/angular.min.js')
+    script(src='/js/app.js')
