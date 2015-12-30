@@ -50,6 +50,19 @@ let mainController = {
         res.json(todos);
       });
     });
+  },
+  deleteAllTodos: (req, res) => {
+    Todo.remove({}, (err, todo) => {
+      if (err) {
+        return res.send(err);
+      }
+      Todo.find({}, (err, todos) => {
+        if (err) {
+          return res.send(err);
+        }
+        res.json(todos);
+      });
+    });
   }
 }
 

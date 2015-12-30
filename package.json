@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "4.2.1"
+  },
   "scripts": {
     "babel": "babel src --out-dir lib",
     "babel:w": "babel -w src --out-dir lib",

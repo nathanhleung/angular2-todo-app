@@ -7,6 +7,7 @@ import bodyParser from 'body-parser'; // Takes information from POST requests an
 import methodOverride from 'method-override'; // Allows for PUT and DELETE methods to be used in browsers where they are not supported
 import mongoose from 'mongoose'; // Wrapper for interacting with MongoDB
 import path from 'path'; // File path utilities to make sure we're using the right type of slash (/ vs \)
+import http from 'http'; // To make the periodic DB clean requests
 
 /**
  * Import controllers
@@ -42,7 +43,32 @@ app.get('/', mainController.getIndex);
 app.get('/templates/:template', mainController.getTemplate);
 app.get('/todos', mainController.getAllTodos);
 app.post('/todos', mainController.postNewTodo);
+app.delete('/todos', mainController.deleteAllTodos);
 app.delete('/todos/:id', mainController.deleteTodo);
+
+/**
+ * Periodically clean database (every ten minutes, for Heroku demo)
+ */
+setInterval(() => {
+  let req = http.request({
+    hostname: "localhost",
+    port: app.get('port'),
+    path: '/todos',
+    method: 'DELETE'
+  }, (res) => {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      console.log('Response body: ' + chunk);
+    });
+    res.on('end', function() {
+      console.log('Response end.')
+    });
+  });
+  req.on('error', function(e) {
+    console.log('Error with request: ' + e.message);
+  });
+  req.end();
+}, 1000 * 60 * 10);
 
 /**
  * Start app
