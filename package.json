@@ -9,7 +9,7 @@
     "webpack": "webpack",
     "webpack:w": "webpack --watch",
     "postinstall": "npm run babel && npm run webpack",
-    "start": "node app"
+    "start": "node lib/app"
   },
   "author": "",
   "license": "ISC",
