@@ -40,6 +40,6 @@ TodoComponent.annotations = [
   })
 ];
 
-TodoComponent.parameters = [[TodoService]];
+TodoComponent.parameters = [TodoService];
 
 export {TodoComponent};
