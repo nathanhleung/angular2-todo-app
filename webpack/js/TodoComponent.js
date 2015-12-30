@@ -3,27 +3,27 @@ import {HTTP_PROVIDERS} from 'angular2/http'; // We're using http in our TodoSer
 import {TodoService} from './TodoService'
 
 class TodoComponent {
-  constructor(TodoService) {
+  constructor(todoService) {
     // So it isn't undefined
     this.todos = [];
     this.todoData = {
       text: ''
     };
-    this.TodoService = TodoService;
-    this.TodoService.getAllTodos()
+    this.todoService = todoService;
+    this.todoService.getAllTodos()
       .subscribe((res) => {
         this.todos = res;
       });
   }
   createTodo() {
-    this.TodoService.postNewTodo(this.todoData)
+    this.todoService.postNewTodo(this.todoData)
       .subscribe((res) => {
         this.todos = res;
         this.todoData.text = '';
       });
   }
   deleteTodo(id) {
-    this.TodoService.deleteTodo(id)
+    this.todoService.deleteTodo(id)
       .subscribe((res) => {
         this.todos = res;
       })
@@ -40,6 +40,6 @@ TodoComponent.annotations = [
   })
 ];
 
-TodoComponent.parameters = [TodoService];
+TodoComponent.parameters = [[TodoService]];
 
 export {TodoComponent};
