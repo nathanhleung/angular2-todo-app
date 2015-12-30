@@ -1,0 +1,24 @@
+.container
+  .jumbotron.text-center
+    h1 Todos&nbsp;
+      span.label.label-info {{todos.length}}
+  .row
+    .col-sm-6.col-sm-offset-3
+      table.table.table-bordered
+        thead
+          tr
+            th.text-center Todos
+        tbody
+          tr(*ngFor="var todo of todos")
+            td
+              input(type='checkbox' on-click='deleteTodo(todo._id)' bind-checked="false")
+              | &nbsp;&nbsp;
+              | {{todo.text}}
+  .row
+    .col-sm-6.col-sm-offset-3
+      form(on-ngSubmit='createTodo()')
+        .form-group
+          input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' bindon-ngModel='todoData.text')
+        .form-group.text-center
+          br
+          button.btn.btn-success.btn-lg(type='submit') Do Something
