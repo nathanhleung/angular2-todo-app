@@ -18,7 +18,7 @@
     .col-sm-6.col-sm-offset-3
       form(on-ngSubmit='createTodo()')
         .form-group
-          input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' bindon-ngModel='todoData.text')
+          input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' bindon-ngModel='todoData.text' required)
         .form-group.text-center
           br
           button.btn.btn-success.btn-lg(type='submit') Do Something
