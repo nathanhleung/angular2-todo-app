@@ -3,11 +3,11 @@ import {Http, Headers} from 'angular2/http';
 import 'rxjs/add/operator/map'
 
 class TodoService {
-  constructor(Http) {
-    this.Http = Http;
+  constructor(http) {
+    this.http = http;
   }
   getAllTodos() {
-    return this.Http.get('/todos')
+    return this.http.get('/todos')
       .map((res) => {
         return JSON.parse(res._body);
       });
@@ -15,14 +15,14 @@ class TodoService {
   postNewTodo(data) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.Http.post('/todos', JSON.stringify(data), {
+    return this.http.post('/todos', JSON.stringify(data), {
       headers: headers
     }).map((res) => {
         return JSON.parse(res._body);
       });
   }
   deleteTodo(id) {
-    return this.Http.delete('/todos/' + id)
+    return this.http.delete('/todos/' + id)
       .map((res) => {
         return JSON.parse(res._body);
       });
