@@ -16,7 +16,11 @@ import mainController from './controllers/main';
 /**
  * Configure database
  */
-mongoose.connect('mongodb://localhost:27017/todoDB'); // Connects to your MongoDB.  Make sure mongod is running!
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/todoDB'); // Connects to your MongoDB.  Make sure mongod is running!
+mongoose.connection.on('error', function() {
+  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
+  process.exit(1);
+});
 
 /**
  * Configure app
