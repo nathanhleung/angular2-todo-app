@@ -31,7 +31,6 @@ app.set('port', process.env.PORT || 3000); // Set port to 3000 or the provided P
 app.set('views', path.join(__dirname, '..', 'views')); // Set our views directory to be `/views` (in the app root, which is one level above)
 app.set('view engine', 'jade'); // Set our view engine to be Jade (so when we render these views, they are compiled with the Jade compiler)
 app.use(express.static(path.join(__dirname, '..', 'public'))); // Set the static files directory - /public will be / on the frontend
-app.use('/vendor', express.static(path.join(__dirname, '..', 'node_modules'))); // Map /vendor to /node_modules
 app.use(logger('dev')); // Log requests to the console
 app.use(bodyParser.json()); // Parse JSON data and put it into an object which we can access
 app.use(methodOverride()); // Allow PUT/DELETE
