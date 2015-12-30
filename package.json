@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"npm run babel && npm run webpack && node lib/app"
     "babel": "babel src --out-dir lib",
     "babel:w": "babel -w src --out-dir lib",
     "webpack": "webpack",
