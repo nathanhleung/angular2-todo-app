@@ -5,6 +5,7 @@ html
     meta(name='description' content='A small todo app written using the Angular 2 beta and the rest of the MEAN stack')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width,initial-scale=1.0')
+    link(rel='icon' href='https://i.imgur.com/IXtkiAk.png')
     style.
       /* Initial CSS to prevent FOUC (Flash of Unstyled Content) */
       .loading {
@@ -15,5 +16,9 @@ html
       }
   body
     todo-app
-      .loading Loading...
+      .loading(style='margin-top: 30px;') Loading...
+    .container.text-center(style='margin-bottom: 30px;')
+      p
+        a(href='https://www.nathanhleung.com/article/2015/12/26/getting-started-with-the-mean-stack/') Tutorial | 
+        a(href='https://github.com/nathanhleung/angular2-todo-app') Source
     script(src="/bundle.js")
