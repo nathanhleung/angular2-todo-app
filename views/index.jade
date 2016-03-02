@@ -8,10 +8,12 @@ html
     link(rel='icon' href='https://i.imgur.com/IXtkiAk.png')
     style.
       /* Initial CSS to prevent FOUC (Flash of Unstyled Content) */
+      body {
+        font-family: Arial;
+      }
       .loading {
         padding-top: 15px;
         font-size: 36px;
-        font-family: Arial;
         text-align: center;
       }
   body
@@ -19,6 +21,7 @@ html
       .loading(style='margin-top: 30px;') Loading...
     .container.text-center(style='margin-bottom: 30px;')
       p
-        a(href='https://www.nathanhleung.com/article/2015/12/26/getting-started-with-the-mean-stack/') Tutorial | 
+        a(href='https://www.nathanhleung.com/article/2015/12/26/getting-started-with-the-mean-stack/') Tutorial
+        | &nbsp;-&nbsp;
         a(href='https://github.com/nathanhleung/angular2-todo-app') Source
     script(src="/bundle.js")
