@@ -21,12 +21,14 @@ let config = {
         loaders: ['file-loader']
       }
     ],
+    /*
     postLoaders: [
       {
         test: /\.js$/,
         loaders: ['uglify-loader']
       }
     ]
+    */
   }
 };
 
