@@ -29,7 +29,7 @@
     "es6-shim": "0.35.0",
     "express": "4.13.4",
     "file-loader": "0.8.5",
-    "pug": "1.11.0",
+    "jade": "1.11.0",
     "method-override": "2.3.5",
     "mongoose": "4.4.13",
     "morgan": "1.7.0",
