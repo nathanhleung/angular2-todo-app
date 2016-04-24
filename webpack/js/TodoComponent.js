@@ -33,11 +33,9 @@ class TodoComponent {
 TodoComponent.annotations = [
   new Component({
     selector: 'todo-app',
-    providers: [TodoService, HTTP_PROVIDERS]
-  }),
-  new View({
+    providers: [TodoService, HTTP_PROVIDERS],
     templateUrl: 'templates/TodoComponent'
-  })
+  }),
 ];
 
 TodoComponent.parameters = [[TodoService]];
